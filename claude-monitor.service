@@ -1,0 +1,32 @@
+[Unit]
+Description=Claude Code subscription window ping
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=__REPO_DIR__
+ExecStart="__PYTHON_BIN__" "__REPO_DIR__/main.py"
+Environment="PATH=__PATH__"
+Environment="CLAUDE_CLI_PATH=__CLAUDE_BIN__"
+Environment=PING_INTERVAL_SECONDS=18000
+Environment=CLAUDE_MODEL=haiku
+Environment=PYTHONUNBUFFERED=1
+Environment=CLAUDE_CODE_SKIP_PROMPT_HISTORY=1
+Environment=ANTHROPIC_API_KEY=
+Environment=ANTHROPIC_AUTH_TOKEN=
+Environment=ANTHROPIC_BASE_URL=
+Environment=CLAUDE_CODE_USE_ANTHROPIC_AWS=
+Environment=CLAUDE_CODE_USE_BEDROCK=
+Environment=CLAUDE_CODE_USE_VERTEX=
+Environment=CLAUDE_CODE_USE_FOUNDRY=
+Environment=ANTHROPIC_BEDROCK_BASE_URL=
+Environment=ANTHROPIC_VERTEX_BASE_URL=
+Environment=ANTHROPIC_FOUNDRY_BASE_URL=
+Restart=on-failure
+RestartSec=5min
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

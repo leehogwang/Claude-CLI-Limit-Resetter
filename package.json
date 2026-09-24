@@ -1,0 +1,30 @@
+{
+  "name": "@leehogwang/cli-limit-resetter",
+  "version": "0.1.0",
+  "description": "Minimal scheduled subscription CLI pings for Claude, Codex, and Gemini",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leehogwang/Claude-CLI-Limit-Resetter.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "commonjs",
+  "bin": {
+    "cli-limit-resetter": "bin/cli-limit-resetter.js"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "pack:check": "npm pack --dry-run"
+  }
+}
